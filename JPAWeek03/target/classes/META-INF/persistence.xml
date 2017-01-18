@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+version="2.1">
+
+	<persistence-unit name="EmployeePersistenceUnit"
+		transaction-type="RESOURCE_LOCAL">
+		
+	
+		<class>_01.hibernate.model.Employee2</class>
+
+		<properties>
+					
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa.schema" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="root" />
+			
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+			
+		<!-- 				
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1520:xe" />
+			<property name="javax.persistence.jdbc.user" value="Levent" />
+			<property name="javax.persistence.jdbc.password" value="123456" />
+		-->
+				
+		</properties>
+		
+	</persistence-unit>
+
+	
+	
+	<persistence-unit name="EmployeePersistenceUnitForHibernate"
+		transaction-type="RESOURCE_LOCAL">
+		
+		<!-- Hibernate JPA icin bu provider'i belirtmemiz gerekmektedir!!! -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<!-- class tanimini burada yapmamiz hibernate icin gerekmez. -->
+
+		<properties>				
+				
+			<!-- hibernate.connection propertyleri de kullanabilir javax.persistence propertly'leri de kullanabiliriz.			
+			eclipselink.ddl-generation hibernate icin calismaz. -->
+				
+			<!-- 				
+     		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa.schema" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />											
+				 --> 
+		<!-- https://docs.jboss.org/hibernate/orm/5.0/manual/en-US/html/ch03.html -->		 
+		 <!-- javax.persistence.jdbc... property'lerini Hibernate icin de problemsiz sekilde kulanabiliriz. -->
+		 	
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
+			<property name="hibernate.id.new_generator_mappings" value="true"/>	
+					
+			
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jpa.schema" />
+			<!-- 1520 yerine default 1521 dir test ederken kendi makinenizde dikkat edin. -->
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.password" value="root" />	
+				
+					
+			<!--ORACLE DB CONFIG
+			 
+			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
+			<property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1520:xe" />
+			1520 yerine default 1521 dir test ederken kendi makinenizde dikkat edin.
+			<property name="hibernate.connection.username" value="Levent" />
+			<property name="hibernate.connection.password" value="123456" /> -->
+					
+				
+		</properties>
+		
+	</persistence-unit>
+	
+	
+	<!-- gerekli config lere ulaşabileceğimiz adres -->
+	<!-- https://docs.jboss.org/hibernate/orm/5.0/manual/en-US/html/ch03.html -->		 
+
+	
+	
+	<persistence-unit name="EmployeePersistenceUnit2"
+		transaction-type="RESOURCE_LOCAL">
+		
+	
+		<class>_02.manyToOne.uni.model.Employee</class>
+		<class>_02.manyToOne.uni.model.Department</class>
+
+		<properties>
+					
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa.schema" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="root" />
+			
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+			
+		<!-- 				
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1520:xe" />
+			<property name="javax.persistence.jdbc.user" value="Levent" />
+			<property name="javax.persistence.jdbc.password" value="123456" />
+		-->
+				
+		</properties>
+		
+	</persistence-unit>
+	
+	
+	<persistence-unit name="EmployeePersistenceUnit3"
+		transaction-type="RESOURCE_LOCAL">
+		
+	
+		<class>_03.oneToOne.uni.model.Employee3</class>
+		<class>_03.oneToOne.uni.model.ParkSpace</class>
+		<class>_03.oneToOne.uni.model.Phone</class>
+		<class>_03.oneToOne.uni.model.Project</class>
+
+		<properties>
+					
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa.schema" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="root" />
+			
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+			
+		<!-- 				
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1520:xe" />
+			<property name="javax.persistence.jdbc.user" value="Levent" />
+			<property name="javax.persistence.jdbc.password" value="123456" />
+		-->
+				
+		</properties>
+		
+
+		
+	</persistence-unit>
+	
+	
+	
+	
+</persistence>
